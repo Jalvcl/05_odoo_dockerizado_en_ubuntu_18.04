@@ -20,8 +20,8 @@ apt install apt-transport-https ca-certificates curl software-properties-common 
 
 #Instalación Docker
 addgroup --system docker
-adduser $USER docker
-newgrp docker
+adduser $SUDO_USER docker
+sudo -u $SUDO_USER newgrp docker
 snap install docker
 systemctl status docker
 
