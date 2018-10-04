@@ -76,6 +76,10 @@ Durante la instalación de Ubuntu 18.04 LTS se eligió habilitar docker, si esto
 
 <https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04>
 
-instalar algunos paquetes necesarios
+#### Agregar al usuario actual al grupo Docker
+
+`sudo usermod -a -G docker $USER`
+
+### Instalar algunos paquetes necesarios
 
 `sudo apt update -y && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y`
