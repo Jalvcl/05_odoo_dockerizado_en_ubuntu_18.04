@@ -1,4 +1,8 @@
 #!/bin/bash
+
+#Istalar utilizando comando 
+# sudo curl -L https://raw.githubusercontent.com/Jalvcl/05_odoo_dockerizado_en_ubuntu_18.04/master/installserver.sh | sudo bash
+
 #Habilitación zona de tiempo correcta
 export TZ=America/Santiago
 #Agregar repositorios extras y mirror locales
@@ -15,13 +19,14 @@ apt update && apt upgrade -y
 apt install apt-transport-https ca-certificates curl software-properties-common -y
 
 #Instalación Docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-apt update
-apt-cache policy docker-ce
-apt install docker-ce
+addgroup --system docker
+adduser $USER docker
+newgrp docker
+snap install docker
 systemctl status docker
-usermod -a -G docker $USER
 
 #Instalación iTerm integración shell
-curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+#curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+
+#Reiniciar para que lso cambios tomen efecto
+#shutdown -r
